@@ -1,0 +1,321 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"27 ./Queue.h
+[; ;./Queue.h: 27: {
+[s S9 `uc 1 `uc -> 20 `i `uc 1 `uc 1 `uc 1 ]
+[n S9 . size v_data front back full ]
+"26 Queue.c
+[; ;Queue.c: 26: void fifo_init(fifo_t* p_fifo, uint8_t size)
+[v _fifo_init `(v ~T0 @X0 1 ef2`*S9`uc ]
+"27
+[; ;Queue.c: 27: {
+{
+[e :U _fifo_init ]
+"26
+[; ;Queue.c: 26: void fifo_init(fifo_t* p_fifo, uint8_t size)
+[v _p_fifo `*S9 ~T0 @X0 1 r1 ]
+[v _size `uc ~T0 @X0 1 r2 ]
+"27
+[; ;Queue.c: 27: {
+[f ]
+"28
+[; ;Queue.c: 28:     if (p_fifo)
+[e $ ! != _p_fifo -> -> 0 `i `*S9 11  ]
+"29
+[; ;Queue.c: 29:     {
+{
+"30
+[; ;Queue.c: 30:         p_fifo->v_data[0] = 0;
+[e = *U + &U . *U _p_fifo 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _p_fifo 1 `ui `ux -> -> 0 `i `uc ]
+"31
+[; ;Queue.c: 31:         p_fifo->size = size;
+[e = . *U _p_fifo 0 _size ]
+"32
+[; ;Queue.c: 32:         p_fifo->full = 0;
+[e = . *U _p_fifo 4 -> -> 0 `i `uc ]
+"33
+[; ;Queue.c: 33:         p_fifo->front = 0;
+[e = . *U _p_fifo 2 -> -> 0 `i `uc ]
+"34
+[; ;Queue.c: 34:         p_fifo->back = 0;
+[e = . *U _p_fifo 3 -> -> 0 `i `uc ]
+"35
+[; ;Queue.c: 35:     }
+}
+[e :U 11 ]
+"36
+[; ;Queue.c: 36: }
+[e :UE 10 ]
+}
+"46
+[; ;Queue.c: 46: uint8_t fifo_queue(fifo_t* p_fifo, uint8_t p_data)
+[v _fifo_queue `(uc ~T0 @X0 1 ef2`*S9`uc ]
+"47
+[; ;Queue.c: 47: {
+{
+[e :U _fifo_queue ]
+"46
+[; ;Queue.c: 46: uint8_t fifo_queue(fifo_t* p_fifo, uint8_t p_data)
+[v _p_fifo `*S9 ~T0 @X0 1 r1 ]
+[v _p_data `uc ~T0 @X0 1 r2 ]
+"47
+[; ;Queue.c: 47: {
+[f ]
+"48
+[; ;Queue.c: 48:     uint8_t result = 0;
+[v _result `uc ~T0 @X0 1 a ]
+[e = _result -> -> 0 `i `uc ]
+"50
+[; ;Queue.c: 50:     if (p_fifo->full == 0)
+[e $ ! == -> . *U _p_fifo 4 `i -> 0 `i 13  ]
+"51
+[; ;Queue.c: 51:     {
+{
+"52
+[; ;Queue.c: 52:         p_fifo->v_data[p_fifo->back] = p_data;
+[e = *U + &U . *U _p_fifo 1 * -> . *U _p_fifo 3 `ux -> -> # *U &U . *U _p_fifo 1 `ui `ux _p_data ]
+"53
+[; ;Queue.c: 53:         p_fifo->back++;
+[e ++ . *U _p_fifo 3 -> -> 1 `i `uc ]
+"55
+[; ;Queue.c: 55:         if (p_fifo->back == p_fifo->size)
+[e $ ! == -> . *U _p_fifo 3 `i -> . *U _p_fifo 0 `i 14  ]
+"56
+[; ;Queue.c: 56:         {
+{
+"57
+[; ;Queue.c: 57:             p_fifo->back = 0;
+[e = . *U _p_fifo 3 -> -> 0 `i `uc ]
+"58
+[; ;Queue.c: 58:         }
+}
+[e :U 14 ]
+"59
+[; ;Queue.c: 59:         if (p_fifo->back == p_fifo->front)
+[e $ ! == -> . *U _p_fifo 3 `i -> . *U _p_fifo 2 `i 15  ]
+"60
+[; ;Queue.c: 60:         {
+{
+"61
+[; ;Queue.c: 61:             p_fifo->full = 1;
+[e = . *U _p_fifo 4 -> -> 1 `i `uc ]
+"62
+[; ;Queue.c: 62:         }
+}
+[e :U 15 ]
+"63
+[; ;Queue.c: 63:         result = 1;
+[e = _result -> -> 1 `i `uc ]
+"64
+[; ;Queue.c: 64:     }
+}
+[e :U 13 ]
+"65
+[; ;Queue.c: 65:     return (result);
+[e ) _result ]
+[e $UE 12  ]
+"66
+[; ;Queue.c: 66: }
+[e :UE 12 ]
+}
+"77
+[; ;Queue.c: 77: uint8_t fifo_dequeue(fifo_t* p_fifo, uint8_t* p_data)
+[v _fifo_dequeue `(uc ~T0 @X0 1 ef2`*S9`*uc ]
+"78
+[; ;Queue.c: 78: {
+{
+[e :U _fifo_dequeue ]
+"77
+[; ;Queue.c: 77: uint8_t fifo_dequeue(fifo_t* p_fifo, uint8_t* p_data)
+[v _p_fifo `*S9 ~T0 @X0 1 r1 ]
+[v _p_data `*uc ~T0 @X0 1 r2 ]
+"78
+[; ;Queue.c: 78: {
+[f ]
+"79
+[; ;Queue.c: 79:     uint8_t result = 0;
+[v _result `uc ~T0 @X0 1 a ]
+[e = _result -> -> 0 `i `uc ]
+"81
+[; ;Queue.c: 81:     if (!(p_fifo->back == p_fifo->front) && (p_fifo->full == 0))
+[e $ ! && ! == -> . *U _p_fifo 3 `i -> . *U _p_fifo 2 `i == -> . *U _p_fifo 4 `i -> 0 `i 17  ]
+"82
+[; ;Queue.c: 82:     {
+{
+"83
+[; ;Queue.c: 83:         if (p_fifo->full == 1)
+[e $ ! == -> . *U _p_fifo 4 `i -> 1 `i 18  ]
+"84
+[; ;Queue.c: 84:         {
+{
+"85
+[; ;Queue.c: 85:             p_fifo->full = 0;
+[e = . *U _p_fifo 4 -> -> 0 `i `uc ]
+"86
+[; ;Queue.c: 86:         }
+}
+[e :U 18 ]
+"87
+[; ;Queue.c: 87:         *p_data = p_fifo->v_data[p_fifo->front];
+[e = *U _p_data *U + &U . *U _p_fifo 1 * -> . *U _p_fifo 2 `ux -> -> # *U &U . *U _p_fifo 1 `ui `ux ]
+"88
+[; ;Queue.c: 88:         p_fifo->front++;
+[e ++ . *U _p_fifo 2 -> -> 1 `i `uc ]
+"91
+[; ;Queue.c: 91:         if (p_fifo->front == (p_fifo->size))
+[e $ ! == -> . *U _p_fifo 2 `i -> . *U _p_fifo 0 `i 19  ]
+"92
+[; ;Queue.c: 92:         {
+{
+"93
+[; ;Queue.c: 93:             p_fifo->front = 0;
+[e = . *U _p_fifo 2 -> -> 0 `i `uc ]
+"94
+[; ;Queue.c: 94:         }
+}
+[e :U 19 ]
+"95
+[; ;Queue.c: 95:         result = 1;
+[e = _result -> -> 1 `i `uc ]
+"96
+[; ;Queue.c: 96:     }
+}
+[e :U 17 ]
+"97
+[; ;Queue.c: 97:     return (result);
+[e ) _result ]
+[e $UE 16  ]
+"98
+[; ;Queue.c: 98: }
+[e :UE 16 ]
+}
+"109
+[; ;Queue.c: 109: uint8_t fifo_peek(fifo_t* p_fifo, uint8_t* p_data)
+[v _fifo_peek `(uc ~T0 @X0 1 ef2`*S9`*uc ]
+"110
+[; ;Queue.c: 110: {
+{
+[e :U _fifo_peek ]
+"109
+[; ;Queue.c: 109: uint8_t fifo_peek(fifo_t* p_fifo, uint8_t* p_data)
+[v _p_fifo `*S9 ~T0 @X0 1 r1 ]
+[v _p_data `*uc ~T0 @X0 1 r2 ]
+"110
+[; ;Queue.c: 110: {
+[f ]
+"111
+[; ;Queue.c: 111:     uint8_t result = 0;
+[v _result `uc ~T0 @X0 1 a ]
+[e = _result -> -> 0 `i `uc ]
+"113
+[; ;Queue.c: 113:     if ((p_fifo->back == p_fifo->front) && (p_fifo->full == 0))
+[e $ ! && == -> . *U _p_fifo 3 `i -> . *U _p_fifo 2 `i == -> . *U _p_fifo 4 `i -> 0 `i 21  ]
+"114
+[; ;Queue.c: 114:     {
+{
+"115
+[; ;Queue.c: 115:         *p_data = p_fifo->v_data[p_fifo->front];
+[e = *U _p_data *U + &U . *U _p_fifo 1 * -> . *U _p_fifo 2 `ux -> -> # *U &U . *U _p_fifo 1 `ui `ux ]
+"116
+[; ;Queue.c: 116:         result = 1;
+[e = _result -> -> 1 `i `uc ]
+"117
+[; ;Queue.c: 117:     }
+}
+[e :U 21 ]
+"118
+[; ;Queue.c: 118:     return (result);
+[e ) _result ]
+[e $UE 20  ]
+"119
+[; ;Queue.c: 119: }
+[e :UE 20 ]
+}
+"130
+[; ;Queue.c: 130: uint8_t fifo_get_count(const fifo_t* p_fifo)
+[v _fifo_get_count `(uc ~T0 @X0 1 ef1`*CS9 ]
+"131
+[; ;Queue.c: 131: {
+{
+[e :U _fifo_get_count ]
+"130
+[; ;Queue.c: 130: uint8_t fifo_get_count(const fifo_t* p_fifo)
+[v _p_fifo `*CS9 ~T0 @X0 1 r1 ]
+"131
+[; ;Queue.c: 131: {
+[f ]
+"132
+[; ;Queue.c: 132:     uint8_t count;
+[v _count `uc ~T0 @X0 1 a ]
+"134
+[; ;Queue.c: 134:     if ((p_fifo->back == p_fifo->front) && (p_fifo->full == 0))
+[e $ ! && == -> . *U _p_fifo 3 `i -> . *U _p_fifo 2 `i == -> . *U _p_fifo 4 `i -> 0 `i 23  ]
+"135
+[; ;Queue.c: 135:     {
+{
+"136
+[; ;Queue.c: 136:         count = 0;
+[e = _count -> -> 0 `i `uc ]
+"137
+[; ;Queue.c: 137:     } else if (p_fifo->full == 1)
+}
+[e $U 24  ]
+[e :U 23 ]
+[e $ ! == -> . *U _p_fifo 4 `i -> 1 `i 25  ]
+"138
+[; ;Queue.c: 138:     {
+{
+"139
+[; ;Queue.c: 139:         count = p_fifo->size;
+[e = _count . *U _p_fifo 0 ]
+"140
+[; ;Queue.c: 140:     } else if (p_fifo->back > p_fifo->front)
+}
+[e $U 26  ]
+[e :U 25 ]
+[e $ ! > -> . *U _p_fifo 3 `i -> . *U _p_fifo 2 `i 27  ]
+"141
+[; ;Queue.c: 141:     {
+{
+"142
+[; ;Queue.c: 142:         count = p_fifo->back - p_fifo->front;
+[e = _count -> - -> . *U _p_fifo 3 `i -> . *U _p_fifo 2 `i `uc ]
+"143
+[; ;Queue.c: 143:     }
+}
+[e $U 28  ]
+"144
+[; ;Queue.c: 144:     else
+[e :U 27 ]
+"145
+[; ;Queue.c: 145:     {
+{
+"146
+[; ;Queue.c: 146:         count = p_fifo->size - p_fifo->back;
+[e = _count -> - -> . *U _p_fifo 0 `i -> . *U _p_fifo 3 `i `uc ]
+"147
+[; ;Queue.c: 147:         if (p_fifo->back > 0)
+[e $ ! > -> . *U _p_fifo 3 `i -> 0 `i 29  ]
+"148
+[; ;Queue.c: 148:         {
+{
+"149
+[; ;Queue.c: 149:             count += p_fifo->back - 1;
+[e =+ _count -> - -> . *U _p_fifo 3 `i -> 1 `i `uc ]
+"150
+[; ;Queue.c: 150:         }
+}
+[e :U 29 ]
+"151
+[; ;Queue.c: 151:     }
+}
+[e :U 28 ]
+[e :U 26 ]
+[e :U 24 ]
+"152
+[; ;Queue.c: 152:     return (count);
+[e ) _count ]
+[e $UE 22  ]
+"153
+[; ;Queue.c: 153: }
+[e :UE 22 ]
+}
