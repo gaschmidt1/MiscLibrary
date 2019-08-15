@@ -1,0 +1,4 @@
+Inputs.c:31:1:InputsConfigure	24	static
+Inputs.c:53:1:InputsInit	16	static
+Inputs.c:81:1:InputsGetState	24	static
+Inputs.c:99:1:InputsPeriodic	24	static

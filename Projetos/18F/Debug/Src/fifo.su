@@ -1,0 +1,5 @@
+fifo.c:32:6:fifo_init	16	static
+fifo.c:51:9:fifo_queue	24	static,ignoring_inline_asm
+fifo.c:83:9:fifo_dequeue	24	static
+fifo.c:116:9:fifo_peek	24	static
+fifo.c:138:9:fifo_get_count	24	static

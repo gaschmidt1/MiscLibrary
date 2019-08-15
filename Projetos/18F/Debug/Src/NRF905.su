@@ -1,0 +1,17 @@
+NRF905.c:55:19:nRf905WriteSpi	32	static
+NRF905.c:78:19:nRf905ReadSpi	32	static
+NRF905.c:102:19:nRf905Exchange	48	static
+NRF905.c:118:6:Nrf905SetMode	16	static
+NRF905.c:163:19:nRf905SetConfig	8	static
+NRF905.c:182:19:nRf905CheckConfig	8	static
+NRF905.c:195:19:nRf905SendPacket	16	static
+NRF905.c:240:19:nRf905ReceivePacket	16	static
+NRF905.c:263:19:nRf905SetTxAddr	24	static
+NRF905.c:289:19:nRf905GetTxAddr	24	static
+NRF905.c:315:19:nRf905SetRxAddr	24	static
+NRF905.c:341:19:nRf905GetRxAddr	24	static
+NRF905.c:366:19:nrf905SetTxBufferLenght	16	static
+NRF905.c:400:19:nRf905GetTxBufferLenght	24	static
+NRF905.c:438:19:nrf905SetRxBufferLenght	16	static
+NRF905.c:462:19:nRf905GetRxBufferLenght	24	static
+NRF905.c:492:19:nRf905GetStatusRegister	24	static
