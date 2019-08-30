@@ -1,0 +1,4 @@
+Process.c:42:6:SetProcessFunc	32	static
+Process.c:49:6:ProcessInit	8	static
+Process.c:63:6:ProcessPeriodic	16	static
+Process.c:97:6:ProcessCheck	8	static

@@ -1,0 +1,5 @@
+MyFlash.c:22:6:FlashWriteU32	24	static,ignoring_inline_asm
+MyFlash.c:38:10:FlashReadU32	24	static
+MyFlash.c:49:6:FlashReadArray	32	static
+MyFlash.c:67:6:FlashWriteArray	48	static
+MyFlash.c:84:6:FlashErase	40	static

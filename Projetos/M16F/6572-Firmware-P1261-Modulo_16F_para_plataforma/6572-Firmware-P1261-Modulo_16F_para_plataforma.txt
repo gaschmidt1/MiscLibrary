@@ -1,0 +1,6 @@
+﻿
+
+-Gravar com StLink.
+-Alimentar com 12V para gravar.
+-Gravar o firmware 6572-Firmware-P1261-Modulo_16F_para_plataforma.hex.
+-OBS: Número de série automático. (Não precisa gravar).

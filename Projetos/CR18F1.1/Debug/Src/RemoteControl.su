@@ -1,0 +1,4 @@
+RemoteControl.c:26:6:RemoteControlInit	16	static
+RemoteControl.c:70:6:RemoteControlConfigCallback	16	static
+RemoteControl.c:76:6:RemoteControlConfigProcessRF	8	static
+RemoteControl.c:102:6:RemoteControlPeriodic	24	static

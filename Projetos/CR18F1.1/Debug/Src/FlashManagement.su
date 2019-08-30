@@ -1,0 +1,3 @@
+FlashManagement.c:21:9:MemCheckMemory	16	static
+FlashManagement.c:37:6:MemReinit	8	static
+FlashManagement.c:82:10:FindSlot	32	static
